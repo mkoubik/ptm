@@ -1,0 +1,7 @@
+<%= flash[:notice] %>
+<h1>Tasks</h1>
+<% for task in @tasks %>
+    <h2><%= task.title %></h2>
+    <p><%= task.comment %></p>
+<% end %>
+<%= link_to "New Task", new_task_path %>
