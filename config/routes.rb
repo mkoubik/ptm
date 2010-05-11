@@ -1,5 +1,6 @@
 Ptm::Application.routes.draw do |map|
   get "tasks/index"
+  match "tasks/:id/delete", :to => "tasks#destroy", :as => :delete_task
 
 
   resources :tasks

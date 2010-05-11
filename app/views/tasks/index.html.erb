@@ -1,7 +1,12 @@
 <%= flash[:notice] %>
 <h1>Tasks</h1>
 <% for task in @tasks %>
-    <h2><%= task.title %></h2>
-    <p><%= task.comment %></p>
+    <div class="task">
+      <h2><%= task.title %></h2>
+      <p><%= task.comment %></p>
+      <p>
+        <%= link_to "Finish", delete_task_url(task) %>
+      </p>
+    </div>
 <% end %>
 <%= link_to "New Task", new_task_path %>

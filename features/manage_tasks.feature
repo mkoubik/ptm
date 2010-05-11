@@ -19,3 +19,10 @@ Feature: Manage tasks
     And I should see "Do the shopping"
     And I should see "Buy potatoes"
     And I should have 1 task
+
+  Scenario: Finish existing task
+    Given I have task titled "Existing task"
+    And I am on the list of tasks
+    When I finish task "Existing task"
+    Then I should see "Task finished."
+    And I should not see "Existing task"

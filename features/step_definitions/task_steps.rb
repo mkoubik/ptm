@@ -1,6 +1,6 @@
-Given /^I have tasks titled (.*)$/ do |tasks|
+Given /^I have tasks? titled (.*)$/ do |tasks|
   tasks.split(', ').each do |title|
-    Task.create!(:title => title)
+    Task.create!(:title => title.gsub!(/^"(.*?)"$/,'\1'))
   end
 end
 
@@ -10,4 +10,11 @@ end
 
 Then /^I should have ([0-9]+) tasks?$/ do |count|
   Task.count.should == count.to_i
+end
+
+When /^I finish task "(.*)"$/ do |task_name|
+  Capybara.default_selector = :xpath
+  within("//div[@class='task'][h2='#{task_name}']") do
+    click_link "Finish"
+  end
 end
