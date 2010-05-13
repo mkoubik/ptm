@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.not_finished
+    @tasks = Task.unfinished
   end
 
   def new

@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
 
-  scope :not_finished, where("tasks.finished IS NULL")
+  scope :unfinished, where("tasks.finished IS NULL")
 
   def finish
     update_attributes(:finished => Time.now)
