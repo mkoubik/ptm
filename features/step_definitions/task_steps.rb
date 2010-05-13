@@ -13,7 +13,6 @@ Then /^I should have ([0-9]+) tasks?$/ do |count|
 end
 
 When /^I finish task "(.*)"$/ do |task_name|
-  Capybara.default_selector = :xpath
   within("//div[@class='task'][h2='#{task_name}']") do
     click_link "Finish"
   end
