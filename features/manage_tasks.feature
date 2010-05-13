@@ -26,3 +26,13 @@ Feature: Manage tasks
     When I finish task "Existing task"
     Then I should see "Task finished."
     And I should not see "Existing task"
+
+  Scenario: List finished tasks
+    Given I have tasks titled "An unfinished task", "First finished task", "Second finished task"
+    And I am on the list of tasks
+    And I finish task "First finished task"
+    And I finish task "Second finished task"
+    When I go to the list of finished tasks
+    Then I should see "First finished task"
+    And I should see "Second finished task"
+    And I should not see "An unfinished task"

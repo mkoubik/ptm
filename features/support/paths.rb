@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the list of tasks/
       tasks_path
 
+    when /the list of finished tasks/
+      finished_tasks_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

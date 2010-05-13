@@ -3,6 +3,10 @@ class TasksController < ApplicationController
     @tasks = Task.unfinished
   end
 
+  def finished
+    @tasks = Task.finished
+  end
+
   def new
     @task = Task.new
   end

@@ -1,0 +1,11 @@
+<%= flash[:notice] %>
+<h1>Tasks</h1>
+<% for task in @tasks %>
+    <div class="task">
+      <h2><%= task.title %></h2>
+      <p><%= task.comment %></p>
+      <p>
+        Finished: <%= task.finished %>
+      </p>
+    </div>
+<% end %>
