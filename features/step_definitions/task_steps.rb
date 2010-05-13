@@ -4,6 +4,12 @@ Given /^I have tasks? titled (.*)$/ do |tasks|
   end
 end
 
+Given /^I have finished tasks? titled (.*)$/ do |tasks|
+  tasks.split(', ').each do |title|
+    Task.create!(:title => title.gsub!(/^"(.*?)"$/,'\1'), :finished => Time.now)
+  end
+end
+
 Given /^I have no tasks$/ do
   Task.delete_all
 end
