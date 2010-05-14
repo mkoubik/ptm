@@ -1,0 +1,11 @@
+<div class="task">
+  <h2><%= task.title %></h2>
+  <p><%= task.comment %></p>
+  <p>
+    <% if task.finished? %>
+      Finished: <%= task.finished %>
+    <% else %>
+      <%= link_to "Finish", delete_task_url(task) %>
+    <% end %>
+  </p>
+</div>
