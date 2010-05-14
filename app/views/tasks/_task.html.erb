@@ -5,7 +5,8 @@
     <% if task.finished? %>
       Finished: <%= task.finished %>
     <% else %>
-      <%= link_to "Finish", delete_task_url(task) %>
+      <%= link_to "Finish", finish_task_url(task) %>
     <% end %>
+    | <%= link_to "Delete", delete_task_url(task) %>
   </p>
 </div>

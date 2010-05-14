@@ -19,6 +19,13 @@ class TasksController < ApplicationController
 
   def destroy
     task = Task.find(params[:id])
+    task.delete
+    flash[:notice] = "Task deleted."
+    redirect_to tasks_path
+  end
+
+  def finish
+    task = Task.find(params[:id])
     task.finish
     flash[:notice] = "Task finished."
     redirect_to tasks_path

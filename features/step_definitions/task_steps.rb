@@ -23,3 +23,17 @@ When /^I finish task "(.*)"$/ do |task_name|
     click_link "Finish"
   end
 end
+
+When /^I delete task "([^\"]*)"$/ do |task_name|
+  visit path_to "the list of tasks"
+  within("//div[@class='task'][h2='#{task_name}']") do
+    click_link "Delete"
+  end
+end
+
+When /^I delete finished task "([^\"]*)"$/ do |task_name|
+  visit path_to "the list of finished tasks"
+  within("//div[@class='task'][h2='#{task_name}']") do
+    click_link "Delete"
+  end
+end

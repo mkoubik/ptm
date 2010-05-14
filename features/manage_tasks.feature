@@ -8,6 +8,14 @@ Feature: Manage tasks
     Then I should see "Do the homework"
     And I should see "Call John"
 
+  Scenario: List finished tasks
+    Given I have task titled "An unfinished task"
+    And I have finished tasks titled "First finished task", "Second finished task"
+    When I go to the list of finished tasks
+    Then I should see "First finished task"
+    And I should see "Second finished task"
+    And I should not see "An unfinished task"
+
   Scenario: Create valid task
     Given I have no tasks
     And I am on the list of tasks
@@ -27,10 +35,14 @@ Feature: Manage tasks
     Then I should see "Task finished."
     And I should not see "Existing task"
 
-  Scenario: List finished tasks
-    Given I have task titled "An unfinished task"
-    And I have finished tasks titled "First finished task", "Second finished task"
-    When I go to the list of finished tasks
-    Then I should see "First finished task"
-    And I should see "Second finished task"
-    And I should not see "An unfinished task"
+  Scenario: Delete unfinished task
+    Given I have task titled "Unfinished task"
+    When I delete task "Unfinished task"
+    And I am on the list of tasks
+    Then I should not see "Unfinished task"
+
+  Scenario: Delete finished task
+    Given I have finished task titled "Finished task"
+    When I delete finished task "Finished task"
+    And I am on the list of finished tasks
+    Then I should not see "Finished task"
